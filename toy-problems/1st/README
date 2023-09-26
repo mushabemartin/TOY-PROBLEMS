@@ -1,0 +1,72 @@
+STUDENT GRADE GENERATOR
+
+This is a simple web application that calculates and displays a student's grade based on the provided marks. The grading scale is as follows:
+- A > 79
+- B - 60 to 79
+- C - 59 to 49
+- D - 40 to 49
+- E - less than 40
+
+HOW TO USE
+
+1. Clone or download this repository to your local machine.
+
+2. Open the `index.html` file in your web browser.
+
+3. Enter the student's marks (between 0 and 100) in the input field.
+
+4. Click the "Calculate Grade" button.
+
+5. The application will display the student's grade based on the input marks.
+
+CODE
+
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Generator</title>
+</head>
+<body>
+    <h1>Student Grade Generator</h1>
+    <p>Enter student's marks (between 0 and 100):</p>
+    <input type="number" id="marksInput">
+    <button onclick="calculateGrade()">Calculate Grade</button>
+    <p id="result"></p>
+js
+    <script>
+        function calculateGrade() {
+            const marksInput = document.getElementById("marksInput").value;
+
+            if (marksInput === "") {
+                alert("Please enter a valid mark.");
+                return;
+            }
+
+            const marks = parseFloat(marksInput);
+
+            if (marks >= 0 && marks <= 100) {
+                let grade = "";
+
+                if (marks > 79) {
+                    grade = "A";
+                } else if (marks >= 60) {
+                    grade = "B";
+                } else if (marks >= 50) {
+                    grade = "C";
+                } else if (marks >= 40) {
+                    grade = "D";
+                } else {
+                    grade = "E";
+                }
+
+                document.getElementById("result").textContent = `The student's grade is: ${grade}`;
+            } else {
+                alert("Invalid input. Mark should be between 0 and 100.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+Feel free to use and modify this code for your needs.
